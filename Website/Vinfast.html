@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinfast</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fontawesome-free-6.1.2-web/css/all.min.css">
+</head>
+<body>
+    <div id="banner">
+        <div id="add-product">
+            <button id="btn-add-product"><i class="fa-solid fa-plus fa-2x"></i></button>
+        </div>
+        <div id="inweb">
+            <h1>Wellcome to my Website  </h1>   
+        </div>
+        <div id="icon"> 
+            <a href="https://facebook.com/khanhhoang5697">
+            <i class="fa-brands fa-facebook fa-2x"></i>
+            </a>
+            <i class="fa-solid fa-bell fa-2x"></i>
+            <i class="fa-solid fa-cart-shopping fa-2x"></i>
+        </div>
+    </div>
+    <div id="menu">
+        <div id="menuleft">
+            <ul>
+                <li><a href="index.html">TRANG CHỦ</a></li>
+                <li><a href="#">DANH MỤC</a>
+                    <ul id="submenu">
+                        <li><a href="#">Mazda</a></li>
+                        <li><a href="#">Toyota</a></li>
+                        <li><a href="#">Kia</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">TIN TỨC</a></li>
+                <li><a href="#">HỖ TRỢ</a></li>
+            </ul>
+        </div>
+        <div id="search">
+            <input type="text" id="searchinput" placeholder="Tìm kiếm sản phẩm">
+            <button id="check" onclick="check()">Tìm kiếm</button>
+        </div>
+    </div>
+    <div id="slide">
+        <img src="https://cdn3.dhht.vn/wp-content/uploads/2021/10/thumbnails-top-10-cac-hang-xe-o-to-dat-nhat-the-gioi-duoc-san-lung.jpg" style="width: 100%; height: 100%;">
+    </div>
+    <div class="form-add-products add-none">
+        <p><h2>Thêm sản phẩm mới</h2></p>
+        <div>
+            <label for="addName">Tên sản phẩm:</label>
+            <input type="text" id="addName"><br>
+            <label for="addPrice">Giá sản phẩm:</label>
+            <input type="number" id="addPrice" min=1 oninput="validity.valid||(value='');"><br>
+            <label for="addImage">Hình ảnh sản phẩm:</label>
+            <input type="url" id="addImage">
+        </div>
+        <div class="btn-update-products">
+            <button type="button" onclick="btnUpdateAdd()">Create</button>
+            <button type="button" onclick="clearFormAdd()">Cancel</button>
+        </div>
+    </div>
+    <div class="form-edit-products edit-none">
+        <p><h2>Sửa sản phẩm</h2></p>
+        <div>
+            <label for="">Tên sản phẩm: </label>
+            <input type="text" id="editName"><br>
+            <label for="editPrice">Giá sản phẩm: </label>
+            <input type="number" id="editPrice" min="1"><br>
+            <label for="editImage">Hình ảnh sản phẩm: </label>
+            <input type="url" id="editImage">
+        </div>
+        <div class="btn-edit-products">
+            <button type="button" onclick="btnUpdateEdit()">Update</button>
+            <button type="button" onclick="clearFormEdit()">Cancel</button>
+        </div>
+    </div>
+    <div id="content">
+            <!-- <ul class="products">
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="" class="product-img">
+                                <img src="img/luxa2.0.jpg" alt="">
+                            </a>
+                            <div class="acction">
+                                <button class="edit-product" onclick="">Sửa</button>
+                                <button class="clear-product" onclick="">Xóa</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <a href="" class="product-name">
+                                    lux 2.0
+                            </a>
+                            <div class="product-price">
+                                800.000.000 VNĐ
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul> -->
+    </div>
+    <div id="bottom">
+        <br>
+        <p><i class="fa-solid fa-user"></i> : Hoàng Đức Khanh</p><br>
+        <p><i class="fa-solid fa-user-group"></i> : C0622G1</p><br>
+        <p><i class="fa-solid fa-envelope"></i> : khanhhoang197.wbs@gmail.com</p><br>
+        <p><i class="fa-solid fa-phone"></i> : 058.58.53.888</p>
+    </div>
+</body>
+    <script src="Scipts/function.js"></script>
+
+</html>
