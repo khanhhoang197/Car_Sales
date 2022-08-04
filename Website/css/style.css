@@ -291,8 +291,13 @@ body{
     text-align: center;
 }
 #bottom{
+    padding: 15px 0;
     height: 150px;
     background-color: rgba(32, 30, 30, 0.699);
     text-align: center;
+    color: white;
+}
+#bottom a{
+    text-decoration: none;
     color: white;
 }

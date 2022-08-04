@@ -1,31 +1,31 @@
-function Car( name, price, img) {
+function Car(name, price, img) {
     this.name = name;
     this.price = price;
     this.img = img;
 }
 
-var cars = [  ]
+var cars = []
 const key_data = 'car_data';
 
-function getData(key){
+function getData(key) {
     return JSON.parse(localStorage.getItem(key));
 }
 
-function setData(key, data){
+function setData(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
 }
 
-function init(){
-    if(getData(key_data) == null){
+function init() {
+    if (getData(key_data) == null) {
         cars = [
-            new Car( "VinFast Lux A2.0", 800000000, "img/luxa2.0.jpg"),
-            new Car( "Mazda CX-5", 1400000000, "img/1.jpg"),
-            new Car( "Toyota Cross 2022", 1300000000, "img/2.jpg"),
-            new Car( "Kia-K8", 1000000000, "img/3.jpg"),
-            new Car( "Maserati", 18000000000, "img/slide1.jpg"),
+            new Car("VinFast Lux A2.0", 800000000, "img/luxa2.0.jpg"),
+            new Car("Mazda CX-5", 1400000000, "img/1.jpg"),
+            new Car("Toyota Cross 2022", 1300000000, "img/2.jpg"),
+            new Car("Kia-K8", 1000000000, "img/3.jpg"),
+            new Car("Maserati", 18000000000, "img/slide1.jpg"),
         ]
         setData(key_data, cars);
-    }else{
+    } else {
         cars = getData(key_data);
     }
 }
@@ -41,8 +41,8 @@ function rendercontent() {
                                 <img src="${car.img}" alt="" style="width: 250px; height="450px"">
                             </a>
                             <div class="acction">
-                                <button class="edit-product" onclick="btnEdit(${index})">Sửa</button>
-                                <button cass="delete-product" onclick="btnDelete(${index})">Xóa</button>
+                                <button class="edit-product" onclick="Edit(${index})">Sửa</button>
+                                <button cass="delete-product" onclick="Remove(${index})">Xóa</button>
                             </div>
                         </div>
                         <div class="product-info">
@@ -67,19 +67,19 @@ function addProduct() {
     document.querySelector('.form-edit-products').classList.add("edit-none");
 }
 
-function btnCreate(){
-    let addName = document.querySelector('#addName').value;
+function Create() {
+    let addName = document.querySelector('#addName').value.trim();
     let addPrice = document.querySelector('#addPrice').value;
-    let addImage = document.querySelector('#addImage').value;
-    if(addName == null || addName.trim() || addName == ''){
+    let addImage = document.querySelector('#addImage').value.trim();
+    if (addName == null || addName == '') {
         alert('Tên không được để trống, hãy nhập tên!');
         return;
     }
-    if(addPrice == null || addPrice == ''){
+    if (addPrice == null || addPrice == '') {
         alert('Hãy nhập giá của sản phẩm');
         return;
     }
-    if(addImage == null || addImage.trim() || addImage == ''){
+    if (addImage == null || addImage == '') {
         alert('Hãy dán link ảnh sản phẩm.');
         return;
     }
@@ -89,36 +89,36 @@ function btnCreate(){
     resetForm();
 }
 
-function clearFormAdd(){
+function clearFormAdd() {
     document.querySelector(".form-add-products").classList.add("add-none");
     resetForm();
 }
 
-function clearFormEdit(){
+function clearFormEdit() {
     document.querySelector('.form-edit-products').classList.add('edit-none');
     document.getElementById('indexCar').value = 0;
     resetFormEdit();
 }
 
-function resetForm(){
+function resetForm() {
     document.querySelector('#addName').value = '';
     document.querySelector('#addPrice').value = '';
     document.querySelector('#addImage').value = '';
 }
 
-function resetFormEdit(){
+function resetFormEdit() {
     document.querySelector('#editName').value = '';
     document.querySelector('#editPrice').value = '';
     document.querySelector('#editImage').value = '';
 }
 
-function formatCurrency(number){
-    return number.toLocaleString('vi', {style : 'currency', currency : 'VND'});
+function formatCurrency(number) {
+    return number.toLocaleString('vi', { style: 'currency', currency: 'VND' });
 }
 
-function btnDelete(index){
+function Remove(index) {
     let confirmed = window.confirm('Bạn có chắc chắn xóa sản phẩm này không?');
-    if(confirmed){
+    if (confirmed) {
         cars.splice(index, 1);
         setData(key_data, cars);
         rendercontent();
@@ -126,7 +126,7 @@ function btnDelete(index){
 }
 
 
-function btnEdit(index){
+function Edit(index) {
     document.querySelector(".form-add-products").classList.add("add-none");
     document.querySelector('.form-edit-products').classList.remove("edit-none");
     document.getElementById('indexCar').value = index;
@@ -137,28 +137,28 @@ function btnEdit(index){
 
 }
 
-function btnUpdateEdit(){
-    let editName = document.querySelector('#editName').value;
+function UpdateEdit() {
+    let editName = document.querySelector('#editName').value.trim();
     let editPrice = document.querySelector('#editPrice').value;
-    let editImage = document.querySelector('#editImage').value;
-    if(editName == null || editName == ''){
+    let editImage = document.querySelector('#editImage').value.trim();
+    if (editName === '') {
         alert('Tên không được để trống, hãy nhập tên!');
         return;
     }
-    if(editPrice == null || editPrice ==''){
+    if (editPrice == null || editPrice == '') {
         alert('Hãy nhập giá của sản phẩm');
         return;
     }
-    if(editImage == null || editImage == ''){
+    if (editImage == null || editImage == '') {
         alert('Hãy dán link ảnh sản phẩm.');
         return;
     }
     let index = document.getElementById('indexCar').value;
-    cars[index] = new Car(editName,editPrice,editImage);
+    cars[index] = new Car(editName, editPrice, editImage);
     setData(key_data, cars);
     clearFormEdit();
     rendercontent();
-    
+
 }
 
 function search() {
@@ -169,7 +169,7 @@ function search() {
     rendercontent(result);
 }
 
-function run(){
+function run() {
     init();
     rendercontent();
 }
