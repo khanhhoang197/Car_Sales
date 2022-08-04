@@ -4,7 +4,7 @@ function Car( name, price, img) {
     this.img = img;
 }
 
-var cars = []
+var cars = [  ]
 const key_data = 'car_data';
 
 function getData(key){
@@ -71,15 +71,15 @@ function btnCreate(){
     let addName = document.querySelector('#addName').value;
     let addPrice = document.querySelector('#addPrice').value;
     let addImage = document.querySelector('#addImage').value;
-    if(addName == null || addName == ''){
+    if(addName == null || addName.trim() || addName == ''){
         alert('Tên không được để trống, hãy nhập tên!');
         return;
     }
-    if(addPrice == null || addPrice ==''){
+    if(addPrice == null || addPrice == ''){
         alert('Hãy nhập giá của sản phẩm');
         return;
     }
-    if(addImage == null || addImage == ''){
+    if(addImage == null || addImage.trim() || addImage == ''){
         alert('Hãy dán link ảnh sản phẩm.');
         return;
     }
@@ -95,7 +95,8 @@ function clearFormAdd(){
 }
 
 function clearFormEdit(){
-    document.querySelector('.form-edit-products').classList.add('add-none');
+    document.querySelector('.form-edit-products').classList.add('edit-none');
+    document.getElementById('indexCar').value = 0;
     resetFormEdit();
 }
 
@@ -125,17 +126,14 @@ function btnDelete(index){
 }
 
 
-function btnEdit(){
+function btnEdit(index){
     document.querySelector(".form-add-products").classList.add("add-none");
     document.querySelector('.form-edit-products').classList.remove("edit-none");
-    // cars.forEach(function(item){
-    //     if(item.index === index )
-    //     document.querySelector('#editName').value = item.addName;
-    //     document.querySelector('#editPrice').value = item.addPrice;
-    //     document.querySelector('#editImage').value = item.addImage;
-    //     return;
-
-    // });
+    document.getElementById('indexCar').value = index;
+    let car = cars[index];
+    document.querySelector('#editName').value = car.name;
+    document.querySelector('#editPrice').value = car.price;
+    document.querySelector('#editImage').value = car.img;
 
 }
 
@@ -155,10 +153,8 @@ function btnUpdateEdit(){
         alert('Hãy dán link ảnh sản phẩm.');
         return;
     }
-
-    newcars.addName = editName;
-    newcars.addPrice = Number(editPrice);
-    newcars.addImage = editImage;
+    let index = document.getElementById('indexCar').value;
+    cars[index] = new Car(editName,editPrice,editImage);
     setData(key_data, cars);
     clearFormEdit();
     rendercontent();
