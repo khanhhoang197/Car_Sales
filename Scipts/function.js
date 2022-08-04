@@ -18,11 +18,14 @@ function setData(key, data) {
 function init() {
     if (getData(key_data) == null) {
         cars = [
-            new Car("VinFast Lux A2.0", 800000000, "img/luxa2.0.jpg"),
-            new Car("Mazda CX-5", 1400000000, "img/1.jpg"),
-            new Car("Toyota Cross 2022", 1300000000, "img/2.jpg"),
-            new Car("Kia-K8", 1000000000, "img/3.jpg"),
-            new Car("Maserati", 18000000000, "img/slide1.jpg"),
+            new Car("VinFast Lux A2.0", 800000000, "img/4.png"),
+            new Car("VinFast SA 2.0", 1500000000, "img/0.png"),
+            new Car("VinFast Fadil", 600000000, "img/1.png"),
+            new Car("Mazda CX-5", 1400000000, "img/test.png"),
+            new Car("Toyota Cross 2022", 1300000000, "img/2.png"),
+            new Car("Toyota bZ4X Consideration", 3400000000, "img/5.png"),
+            new Car("Kia-K8", 1000000000, "img/3.png"),
+            new Car("Maserati", 18000000000, "img/6.png"),
         ]
         setData(key_data, cars);
     } else {
@@ -30,16 +33,18 @@ function init() {
     }
 }
 
-function rendercontent() {
-    let htmls = cars.map(function (car, index) {
+function rendercontent(data) {
+    let htmls = data.map(function (car, index) {
         return `
             <ul class="products">
                 <li>
                     <div class="product-item">
                         <div class="product-top">
-                            <a href="" class="product-img">
-                                <img src="${car.img}" alt="" style="width: 250px; height="450px"">
-                            </a>
+                        
+                                <a href="" class="product-img">
+                                    <img src="${car.img}" alt="" style="height:200px">
+                                </a>
+                       
                             <div class="acction">
                                 <button class="edit-product" onclick="Edit(${index})">Sửa</button>
                                 <button cass="delete-product" onclick="Remove(${index})">Xóa</button>
@@ -85,7 +90,7 @@ function Create() {
     }
     cars.unshift(new Car(addName, addPrice, addImage));
     setData(key_data, cars);
-    rendercontent();
+    rendercontent(cars);
     resetForm();
 }
 
@@ -121,7 +126,7 @@ function Remove(index) {
     if (confirmed) {
         cars.splice(index, 1);
         setData(key_data, cars);
-        rendercontent();
+        rendercontent(cars);
     }
 }
 
@@ -157,20 +162,21 @@ function UpdateEdit() {
     cars[index] = new Car(editName, editPrice, editImage);
     setData(key_data, cars);
     clearFormEdit();
-    rendercontent();
+    rendercontent(cars);
 
 }
 
 function search() {
     let keywork = document.querySelector('#searchinput').value;
-    let result = cars.filter(function (cars) {
-        return cars.name.toLowerCase().indexOf(keywork.toLowerCase()) != -1;
+    let result = cars.filter(function (car) {
+        return car.name.toLowerCase().indexOf(keywork.toLowerCase()) != -1;
     })
     rendercontent(result);
 }
 
+
 function run() {
     init();
-    rendercontent();
+    rendercontent(cars);
 }
 run();

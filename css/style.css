@@ -220,7 +220,7 @@ body{
     position: relative;
     overflow: hidden;
 }
-.product-top img{
+#img{
     width: 250px;
     height: 450px;
 }
@@ -263,7 +263,7 @@ body{
     border-radius: 15px;
 }
 .products li:hover{
-  transform: scale(1.1)
+    transform: scale(1.1)
 }
 .products li img{
     display: block;
