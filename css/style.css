@@ -32,9 +32,10 @@ body{
     background-color: rgba(255, 255, 255, 0.418) ;
 }
 #inweb{
-    width: 70%;
-    height: 70px;
+    width: 50%;
+    height: 73px;
     text-align: center;
+
 
 
 }
@@ -46,10 +47,30 @@ body{
 
 #icon{
     width: 30%;
+    line-height: 88px;
+
 }
 #icon i{
     margin-left: 55px;
     color: white;
+}
+.Login{
+    width: 17%;
+    text-align: center;
+
+}
+.Login button{
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+
+
+}
+.Login button:hover{
+    cursor: pointer;
+    background-color: rgba(104, 98, 98, 0.507)
 }
 #menu{
     height: 45px;
@@ -131,12 +152,39 @@ body{
 #check:hover{
     background-color: rgba(255, 255, 255, 0.637);
 }
-#slide{
-    width: 700px;
+.boxslider{
+    width: 100%;
     height: 250px;
-    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+#SortPrice{
+    width: 200px;
+    height: 50px;
+    color: white;
+    float: left;
+    text-align: center;
+    margin-top: 19%;
+    margin-left: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    background-color: rgba(54, 50, 50, 0.158);
+    border-radius: 15px;
+
+    
+}
+#SortPrice span:hover{
+    cursor: pointer;
+    color: orange;
+}
+
+
+#slide{
+    width: 70%;
+    height: 100%;
     border-radius: 50%;
     box-shadow: 0px 10px 10px 10px rgba(54, 50, 50, 0.322);
+    float: left;
     
 }
 

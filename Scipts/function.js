@@ -174,6 +174,18 @@ function search() {
     rendercontent(result);
 }
 
+function sort(direct) {
+    if (direct == "sort_asc") {
+        cars.sort(function (car, index) {
+            return car.price - index.price;
+        });
+    } else {
+        cars.sort(function (car, index) {
+            return index.price - car.price;
+        });
+    }
+    rendercontent(cars);
+}
 
 function run() {
     init();

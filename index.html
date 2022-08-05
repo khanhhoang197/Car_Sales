@@ -23,6 +23,10 @@
             <i class="fa-solid fa-bell fa-2x"></i>
             <i class="fa-solid fa-cart-shopping fa-2x"></i>
         </div>
+        <div class="Login">
+            <button>Login</button>
+            <button>Register</button>
+        </div>
     </div>
     <div id="menu">
         <div id="menuleft">
@@ -45,8 +49,17 @@
             <button id="check" onclick="search()">Tìm kiếm</button>
         </div>
     </div>
-    <div id="slide">
-        <img src="img/9.png" style="width: 100%; height: 100%;">
+    <div class="boxslider">
+        <div id="SortPrice"> 
+            <p>Sắp xếp theo giá: 
+                <span title="Tăng" onclick="sort('sort_asc')">&#x25B2;</span>
+                <span title="Giảm" onclick="sort('sort_desc')">&#x25BC;</span>
+            </p>
+        </div>
+        <div id="slide">
+            <img src="img/9.png" style="width: 100%; height: 100%;">
+        </div>
+        
     </div>
     <div class="form-add-products add-none">
         <p><h2>Thêm sản phẩm mới</h2></p>
@@ -80,7 +93,7 @@
         </div>
     </div>
     <div id="content">
-        <div>Sắp xếp</div>
+       
     </div>
     <div id="bottom">
         <br>
