@@ -33,7 +33,7 @@ function init() {
     }
 }
 
-function rendercontent(data) {
+function Rendercontent(data) {
     let htmls = data.map(function (car, index) {
         return `
             <ul class="products">
@@ -90,7 +90,7 @@ function Create() {
     }
     cars.unshift(new Car(addName, addPrice, addImage));
     setData(key_data, cars);
-    rendercontent(cars);
+    Rendercontent(cars);
     resetForm();
 }
 
@@ -126,7 +126,7 @@ function Remove(index) {
     if (confirmed) {
         cars.splice(index, 1);
         setData(key_data, cars);
-        rendercontent(cars);
+        Rendercontent(cars);
     }
 }
 
@@ -162,7 +162,7 @@ function UpdateEdit() {
     cars[index] = new Car(editName, editPrice, editImage);
     setData(key_data, cars);
     clearFormEdit();
-    rendercontent(cars);
+    Rendercontent(cars);
 
 }
 
@@ -171,7 +171,7 @@ function search() {
     let result = cars.filter(function (car) {
         return car.name.toLowerCase().indexOf(keywork.toLowerCase()) != -1;
     })
-    rendercontent(result);
+    Rendercontent(result);
 }
 
 function sort(direct) {
@@ -184,11 +184,11 @@ function sort(direct) {
             return index.price - car.price;
         });
     }
-    rendercontent(cars);
+    Rendercontent(cars);
 }
 
-function run() {
+function Run() {
     init();
-    rendercontent(cars);
+    Rendercontent(cars);
 }
-run();
+Run();

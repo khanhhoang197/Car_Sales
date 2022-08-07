@@ -46,32 +46,27 @@ body{
 }
 
 #icon{
-    width: 30%;
+    width: 35%;
     line-height: 88px;
 
 }
 #icon i{
     margin-left: 55px;
-    color: white;
+    color: white;   
 }
 .Login{
-    width: 17%;
+    width: 15%;
     text-align: center;
-
 }
-.Login button{
-    width: 70px;
-    height: 30px;
-    border-radius: 10px;
-    outline: none;
-    border: none;
-
-
+.Login a{
+    color: white;
+    text-decoration: none;  
+    padding: 0px 10px;  
 }
-.Login button:hover{
-    cursor: pointer;
-    background-color: rgba(104, 98, 98, 0.507)
+.Login a:hover{
+    color: orange;
 }
+
 #menu{
     height: 45px;
     background-color: rgba(32, 30, 30, 0.699);
